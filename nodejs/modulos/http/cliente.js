@@ -1,19 +1,18 @@
-
 const http = require('http');
 
-http.get ('http://jsonplaceholder.typicode.com/todos/1', (res) => {
+http.get('http://jsonplaceholder.typicode.com/todos/2' , (res) => {
     let data = '';
 
-   //um pedaço do dado foi recebido.
-   res.on ('data', (chunk) => {
-    data +=chunk;
-   });
+    //Um pedaço de dado foi recebido.
+    res.on('data' , (chunk) => {
+        data += chunk;
+    });
 
-   // A resposta inteira foi recebida. Imprime o resultado.
-   res.on ('end', () => {
-    console.log (JSON.parse (data));
-   })
+    //A resposta inteira foi recebida. Imprime o resultado.
+    res.on('end' , () => {
+        console.log(JSON.parse(data));
+    });
 
-}).on ("error", (err) => {
-    console.log("Erro: " +err.message);
+}).on("error" , (err) => {
+    console.log("Erro: " + err.message);
 });
